@@ -1,0 +1,14 @@
+.chatfield {
+    height: 400px;
+    .messageunit {
+        .nametext {
+            p {
+                margin: 0;
+            }
+        }
+        .timesig {
+            text-align: center;
+            margin: 0;
+        }
+    }
+}

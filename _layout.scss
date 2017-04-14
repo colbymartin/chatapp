@@ -1,0 +1,38 @@
+body {
+    .header {
+        @include grid-row();
+        h1 {
+            @include grid-column(9);
+        }
+        input {
+            @include grid-column(3);
+        }
+    }
+    .chatfield {
+        .messageunit {
+            @include grid-row();
+            .nametext {
+                @include grid-column(9);
+            }
+            .timesig {
+                @include grid-column(3);
+            }
+        }
+    }
+    .getbutton {
+        @include grid-row();
+        button {
+            @include grid-column(4);
+            @include grid-column-offset(4);
+        }
+    }
+    .textinput {
+        @include grid-row();
+        input {
+            @include grid-column(10);
+        }
+        button {
+            @include grid-column(2);
+        }
+    }
+}

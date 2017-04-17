@@ -2,7 +2,13 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
+// $grid-row-width: rem-calc(1);
+$header-font: 'Lobster', cursive;
+$text-font: 'Raleway', sans-serif;
+
+
 @import 'layout';
 @import 'header';
 @import 'getbutton';
 @import 'chatfield';
+@import 'textinput';

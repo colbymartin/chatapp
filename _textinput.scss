@@ -1,0 +1,15 @@
+.textinput {
+    margin-top: 15px;
+    input {
+        height: 50px;
+        font-family: $text-font;
+    }
+    .send {
+        height: 50px;
+        border: 3px solid #ff8360;
+        border-radius: 100px;
+        font-family: $header-font;
+        color: #ff8360;
+        font-size: 30px;
+    }
+}

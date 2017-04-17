@@ -1,14 +1,25 @@
 .chatfield {
+    background-color: white;
     height: 400px;
+    overflow: auto;
+    max-height: 100%;
+    // border: 1px solid black;
     .messageunit {
+        font-family: $text-font;
         .nametext {
             p {
-                margin: 0;
+                margin: 0;   
+                color: #395E3C;
+            }
+            .name {
+                font-weight: 800;
             }
         }
         .timesig {
             text-align: center;
             margin: 0;
+            color: #395E3C;
+            font-size: .9em;
         }
     }
 }

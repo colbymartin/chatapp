@@ -1,11 +1,15 @@
 .header {
-    border: 1px solid black;
-    margin-top: 20px;
-    padding: 15px;
     h1 {
         margin: 0;
+        font-family: $header-font;
+        color: #ff8360;
+        font-size: 60px;
     }
     input {
         height: 50px;
+        font-family: $text-font;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 90%;
     }
 }

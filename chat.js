@@ -8,6 +8,7 @@ function makeMessage(chat) {
     let field = document.querySelector('.chatfield');
     let fullmessage = document.createElement('div');
     fullmessage.classList.add('messageunit');
+    fullmessage.setAttribute('id', 'watch-' + chat.id);
 
     let nametext = document.createElement('div');
     nametext.classList.add('nametext');
@@ -18,11 +19,37 @@ function makeMessage(chat) {
 
     let text = document.createElement('p');
     text.classList.add('text');
-    text.textContent = chat.message;
+    text.textContent = checkLink(chat.message);
+// Below: What I am trying to do is take the chat.message and do the following: 
+// step 1: split the sentence by spaces and divide into an array.
+// step 2: take each part of array and split into an array of characters. 
+// step 3: if first 4 characters are "http", then I need to join that string together and convert it into a link
+// otherwise, join back and return as normal.
+   
+    function linkify(string) {
+        let splitString = string.split("");
+        if (splitString[0] === 'h' && splitString[1] === 't' && splitString[2] === 't' && splitString[3] === 'p') {
+            let joinedString = splitString.join('');
+            console.log(joinedString);
+            let newLink = document.createElement('a');
+            newLink.setAttribute('href', joinedString);
+            return newLink;
+        } else return splitString.join('');
+    }
+    function checkLink(message) {
+        let linkCheck = message.split(' '); 
+        for (let i = 0; i < linkCheck.length; i++) {
+        linkCheck[i] = linkify(linkCheck[i])
+    };  
+    return linkCheck.join(' ');
+    };
+    text.textContent = checkLink(chat.message);
 
     let time = document.createElement('p');
     time.classList.add('timesig');
     time.textContent = chat.added;
+
+
 
     nametext.appendChild(from);
     nametext.appendChild(text);
@@ -38,7 +65,10 @@ function getMessage() {
         let response = JSON.parse(pull.responseText);
         console.log(response);
         for (let i = 0; i < response.chats.length; i++) {
-            makeMessage(response.chats[i]);
+            if (document.querySelector('#watch-' + response.chats[i].id) === null) {
+                makeMessage(response.chats[i]);
+            }
+
         }
     });
     pull.send();
@@ -52,6 +82,7 @@ window.addEventListener('load', function () {
     let getbtn = document.querySelector('.get');
     getbtn.addEventListener('click', function () {     
         console.log('Hi Mom');
+        getMessage();
 });
 
     let sendbtn = document.querySelector('.send');
@@ -60,6 +91,7 @@ window.addEventListener('load', function () {
         let messageinput = document.querySelector('.message-input');
         
         let push = new XMLHttpRequest();
+        push.open('POST', 'https://tiy-28202.herokuapp.com/chats')
         push.addEventListener('load', function () {
             console.log('message received');
         });
@@ -67,5 +99,8 @@ window.addEventListener('load', function () {
             from: username.value,
             message: messageinput.value, 
         }));
+        messageinput.value = "";
+        getMessage();
     });
 });
+

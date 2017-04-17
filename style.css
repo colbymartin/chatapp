@@ -1372,6 +1372,8 @@ pre {
         margin-bottom: 0; } }
 
 body .header {
+  margin-top: 20px;
+  padding: 15px;
   max-width: 75rem;
   margin-right: auto;
   margin-left: auto; }
@@ -1381,7 +1383,7 @@ body .header {
   body .header::after {
     clear: both; }
   body .header h1 {
-    width: 75%;
+    width: 83.33333%;
     float: left;
     padding-right: 0.625rem;
     padding-left: 0.625rem; }
@@ -1392,7 +1394,7 @@ body .header {
     body .header h1:last-child:not(:first-child) {
       float: right; }
   body .header input {
-    width: 25%;
+    width: 16.66667%;
     float: left;
     padding-right: 0.625rem;
     padding-left: 0.625rem; }
@@ -1486,26 +1488,91 @@ body .textinput {
     body .textinput button:last-child:not(:first-child) {
       float: right; }
 
-.header {
-  border: 1px solid black;
+@media (max-width: 600px) {
+  .header {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto; }
+    .header::before, .header::after {
+      display: table;
+      content: ' '; }
+    .header::after {
+      clear: both; }
+    .header h1 {
+      width: 100%;
+      float: left;
+      padding-right: 0.625rem;
+      padding-left: 0.625rem; } }
+    @media print and (max-width: 600px), screen and (max-width: 600px) and (min-width: 40em) {
+      .header h1 {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+@media (max-width: 600px) {
+      .header h1:last-child:not(:first-child) {
+        float: right; }
+    .header input {
+      width: 100%;
+      float: left;
+      padding-right: 0.625rem;
+      padding-left: 0.625rem; } }
+    @media print and (max-width: 600px), screen and (max-width: 600px) and (min-width: 40em) {
+      .header input {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+@media (max-width: 600px) {
+      .header input:last-child:not(:first-child) {
+        float: right; } }
+.header h1 {
+  margin: 0;
+  font-family: "Lobster", cursive;
+  color: #ff8360;
+  font-size: 60px; }
+.header input {
+  height: 50px;
+  font-family: "Raleway", sans-serif;
   margin-top: 20px;
-  padding: 15px; }
-  .header h1 {
-    margin: 0; }
-  .header input {
-    height: 50px; }
+  text-align: center;
+  font-size: 90%; }
 
 .getbutton {
   padding: 15px 0px 15px 0px; }
   .getbutton button {
-    border: 1px solid black; }
+    border: 3px solid #ff8360;
+    border-radius: 100px;
+    font-size: 95%;
+    height: 40px;
+    font-family: "Lobster", cursive;
+    color: #ff8360; }
 
 .chatfield {
-  height: 400px; }
-  .chatfield .messageunit .nametext p {
-    margin: 0; }
-  .chatfield .messageunit .timesig {
-    text-align: center;
-    margin: 0; }
+  background-color: white;
+  height: 400px;
+  overflow: auto;
+  max-height: 100%; }
+  .chatfield .messageunit {
+    font-family: "Raleway", sans-serif; }
+    .chatfield .messageunit .nametext p {
+      margin: 0;
+      color: #395E3C; }
+    .chatfield .messageunit .nametext .name {
+      font-weight: 800; }
+    .chatfield .messageunit .timesig {
+      text-align: center;
+      margin: 0;
+      color: #395E3C;
+      font-size: .9em; }
+
+.textinput {
+  margin-top: 15px; }
+  .textinput input {
+    height: 50px;
+    font-family: "Raleway", sans-serif; }
+  .textinput .send {
+    height: 50px;
+    border: 3px solid #ff8360;
+    border-radius: 100px;
+    font-family: "Lobster", cursive;
+    color: #ff8360;
+    font-size: 30px; }
 
 /*# sourceMappingURL=style.css.map */

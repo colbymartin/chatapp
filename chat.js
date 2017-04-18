@@ -53,6 +53,7 @@ function makeMessage(chat) {
 
     nametext.appendChild(from);
     nametext.appendChild(text);
+    // nametext.appendChild(newLink);
     fullmessage.appendChild(nametext);
     fullmessage.appendChild(time);
     field.appendChild(fullmessage);
@@ -81,7 +82,6 @@ window.addEventListener('load', function () {
 
     let getbtn = document.querySelector('.get');
     getbtn.addEventListener('click', function () {     
-        console.log('Hi Mom');
         getMessage();
 });
 
